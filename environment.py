@@ -23,11 +23,10 @@ class DQNEnvironment(gym.Wrapper):
         image = None
 
         for i in range(4):  # you dont really want to react on every frame, goup frames 4 at a time
-            # print(action)
             observation, reward, done, trucated, info = self.env.step(action)
             self.total_rewards += reward
-            if reward != 0:
-                print(self.total_rewards)
+            #if reward != 0:
+                #print(self.total_rewards)
 
             proccessed_img = Image.fromarray(observation)
             proccessed_img = proccessed_img.resize(self.image_shape)
