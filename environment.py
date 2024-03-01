@@ -24,7 +24,10 @@ class DQNEnvironment(gym.Wrapper):
 
         for i in range(4):  # you dont really want to react on every frame, goup frames 4 at a time
             observation, reward, done, trucated, info = self.env.step(action)
-            self.total_rewards += reward
+            if reward > 0:
+                self.total_rewards += reward*200
+            else:
+                self.total_rewards += reward
             #if reward != 0:
                 #print(self.total_rewards)
 
